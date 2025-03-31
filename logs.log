@@ -1,0 +1,891 @@
+2025-03-31 09:27:27,093:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:27:27,093:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:27:27,093:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:27:27,093:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:28:06,253:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:28:06,254:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:28:06,254:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:28:06,254:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:28:07,641:INFO:PyCaret AnomalyExperiment
+2025-03-31 09:28:07,642:INFO:Logging name: anomaly-default-name
+2025-03-31 09:28:07,642:INFO:ML Usecase: MLUsecase.ANOMALY
+2025-03-31 09:28:07,642:INFO:version 3.3.2
+2025-03-31 09:28:07,642:INFO:Initializing setup()
+2025-03-31 09:28:07,642:INFO:self.USI: a158
+2025-03-31 09:28:07,642:INFO:self._variable_keys: {'exp_id', 'exp_name_log', 'X', '_ml_usecase', 'seed', 'log_plots_param', 'html_param', 'memory', '_available_plots', 'gpu_param', 'gpu_n_jobs_param', 'USI', 'logging_param', 'pipeline', 'n_jobs_param', 'data', 'idx'}
+2025-03-31 09:28:07,642:INFO:Checking environment
+2025-03-31 09:28:07,642:INFO:python_version: 3.11.9
+2025-03-31 09:28:07,642:INFO:python_build: ('tags/v3.11.9:de54cf5', 'Apr  2 2024 10:12:12')
+2025-03-31 09:28:07,642:INFO:machine: AMD64
+2025-03-31 09:28:07,664:INFO:platform: Windows-10-10.0.26100-SP0
+2025-03-31 09:28:07,677:INFO:Memory: svmem(total=8494747648, available=689180672, percent=91.9, used=7805566976, free=689180672)
+2025-03-31 09:28:07,677:INFO:Physical Core: 4
+2025-03-31 09:28:07,677:INFO:Logical Core: 8
+2025-03-31 09:28:07,677:INFO:Checking libraries
+2025-03-31 09:28:07,677:INFO:System:
+2025-03-31 09:28:07,677:INFO:    python: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+2025-03-31 09:28:07,677:INFO:executable: C:\Users\thuli\.virtual_envs\.Chlorum\Scripts\python.exe
+2025-03-31 09:28:07,677:INFO:   machine: Windows-10-10.0.26100-SP0
+2025-03-31 09:28:07,678:INFO:PyCaret required dependencies:
+2025-03-31 09:28:07,928:INFO:                 pip: 24.0
+2025-03-31 09:28:07,928:INFO:          setuptools: 65.5.0
+2025-03-31 09:28:07,928:INFO:             pycaret: 3.3.2
+2025-03-31 09:28:07,928:INFO:             IPython: 9.0.2
+2025-03-31 09:28:07,928:INFO:          ipywidgets: 8.1.5
+2025-03-31 09:28:07,928:INFO:                tqdm: 4.67.1
+2025-03-31 09:28:07,928:INFO:               numpy: 1.26.4
+2025-03-31 09:28:07,928:INFO:              pandas: 2.1.4
+2025-03-31 09:28:07,928:INFO:              jinja2: 3.1.6
+2025-03-31 09:28:07,928:INFO:               scipy: 1.11.4
+2025-03-31 09:28:07,929:INFO:              joblib: 1.3.2
+2025-03-31 09:28:07,929:INFO:             sklearn: 1.4.2
+2025-03-31 09:28:07,929:INFO:                pyod: 2.0.4
+2025-03-31 09:28:07,929:INFO:            imblearn: 0.13.0
+2025-03-31 09:28:07,929:INFO:   category_encoders: 2.7.0
+2025-03-31 09:28:07,929:INFO:            lightgbm: 4.6.0
+2025-03-31 09:28:07,929:INFO:               numba: 0.61.0
+2025-03-31 09:28:07,929:INFO:            requests: 2.32.3
+2025-03-31 09:28:07,929:INFO:          matplotlib: 3.7.5
+2025-03-31 09:28:07,929:INFO:          scikitplot: 0.3.7
+2025-03-31 09:28:07,929:INFO:         yellowbrick: 1.5
+2025-03-31 09:28:07,929:INFO:              plotly: 5.24.1
+2025-03-31 09:28:07,929:INFO:    plotly-resampler: Not installed
+2025-03-31 09:28:07,929:INFO:             kaleido: 0.2.1
+2025-03-31 09:28:07,930:INFO:           schemdraw: 0.15
+2025-03-31 09:28:07,930:INFO:         statsmodels: 0.14.4
+2025-03-31 09:28:07,930:INFO:              sktime: 0.26.0
+2025-03-31 09:28:07,930:INFO:               tbats: 1.1.3
+2025-03-31 09:28:07,930:INFO:            pmdarima: 2.0.4
+2025-03-31 09:28:07,930:INFO:              psutil: 7.0.0
+2025-03-31 09:28:07,930:INFO:          markupsafe: 3.0.2
+2025-03-31 09:28:07,930:INFO:             pickle5: Not installed
+2025-03-31 09:28:07,930:INFO:         cloudpickle: 3.1.1
+2025-03-31 09:28:07,930:INFO:         deprecation: 2.1.0
+2025-03-31 09:28:07,930:INFO:              xxhash: 3.5.0
+2025-03-31 09:28:07,930:INFO:           wurlitzer: Not installed
+2025-03-31 09:28:07,930:INFO:PyCaret optional dependencies:
+2025-03-31 09:28:07,954:INFO:                shap: Not installed
+2025-03-31 09:28:07,954:INFO:           interpret: Not installed
+2025-03-31 09:28:07,954:INFO:                umap: Not installed
+2025-03-31 09:28:07,954:INFO:     ydata_profiling: Not installed
+2025-03-31 09:28:07,955:INFO:  explainerdashboard: Not installed
+2025-03-31 09:28:07,955:INFO:             autoviz: Not installed
+2025-03-31 09:28:07,955:INFO:           fairlearn: Not installed
+2025-03-31 09:28:07,955:INFO:          deepchecks: Not installed
+2025-03-31 09:28:07,955:INFO:             xgboost: Not installed
+2025-03-31 09:28:07,955:INFO:            catboost: Not installed
+2025-03-31 09:28:07,955:INFO:              kmodes: Not installed
+2025-03-31 09:28:07,955:INFO:             mlxtend: Not installed
+2025-03-31 09:28:07,955:INFO:       statsforecast: Not installed
+2025-03-31 09:28:07,955:INFO:        tune_sklearn: Not installed
+2025-03-31 09:28:07,955:INFO:                 ray: Not installed
+2025-03-31 09:28:07,955:INFO:            hyperopt: Not installed
+2025-03-31 09:28:07,955:INFO:              optuna: Not installed
+2025-03-31 09:28:07,955:INFO:               skopt: Not installed
+2025-03-31 09:28:07,955:INFO:              mlflow: Not installed
+2025-03-31 09:28:07,955:INFO:              gradio: Not installed
+2025-03-31 09:28:07,956:INFO:             fastapi: Not installed
+2025-03-31 09:28:07,956:INFO:             uvicorn: Not installed
+2025-03-31 09:28:07,956:INFO:              m2cgen: Not installed
+2025-03-31 09:28:07,956:INFO:           evidently: Not installed
+2025-03-31 09:28:07,956:INFO:               fugue: Not installed
+2025-03-31 09:28:07,956:INFO:           streamlit: 1.44.0
+2025-03-31 09:28:07,956:INFO:             prophet: Not installed
+2025-03-31 09:28:07,956:INFO:None
+2025-03-31 09:28:07,956:INFO:Set up data.
+2025-03-31 09:28:07,979:INFO:Set up index.
+2025-03-31 09:28:07,979:INFO:Assigning column types.
+2025-03-31 09:28:07,990:INFO:Engine successfully changes for model 'kmeans' to 'sklearn'.
+2025-03-31 09:28:09,483:INFO:Engine successfully changes for model 'dbscan' to 'sklearn'.
+2025-03-31 09:28:09,502:INFO:Preparing preprocessing pipeline...
+2025-03-31 09:28:09,502:INFO:Set up simple imputation.
+2025-03-31 09:28:09,502:INFO:Set up removing outliers.
+2025-03-31 09:33:39,987:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:33:39,987:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:33:39,987:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:33:39,988:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 09:33:43,179:INFO:PyCaret AnomalyExperiment
+2025-03-31 09:33:43,180:INFO:Logging name: anomaly-default-name
+2025-03-31 09:33:43,180:INFO:ML Usecase: MLUsecase.ANOMALY
+2025-03-31 09:33:43,180:INFO:version 3.3.2
+2025-03-31 09:33:43,180:INFO:Initializing setup()
+2025-03-31 09:33:43,180:INFO:self.USI: ed7d
+2025-03-31 09:33:43,180:INFO:self._variable_keys: {'exp_name_log', 'memory', '_ml_usecase', 'pipeline', 'n_jobs_param', 'X', 'idx', 'gpu_param', 'log_plots_param', 'exp_id', 'logging_param', '_available_plots', 'html_param', 'seed', 'gpu_n_jobs_param', 'data', 'USI'}
+2025-03-31 09:33:43,180:INFO:Checking environment
+2025-03-31 09:33:43,180:INFO:python_version: 3.11.9
+2025-03-31 09:33:43,180:INFO:python_build: ('tags/v3.11.9:de54cf5', 'Apr  2 2024 10:12:12')
+2025-03-31 09:33:43,180:INFO:machine: AMD64
+2025-03-31 09:33:43,218:INFO:platform: Windows-10-10.0.26100-SP0
+2025-03-31 09:33:43,223:INFO:Memory: svmem(total=8494747648, available=403681280, percent=95.2, used=8091066368, free=403681280)
+2025-03-31 09:33:43,223:INFO:Physical Core: 4
+2025-03-31 09:33:43,223:INFO:Logical Core: 8
+2025-03-31 09:33:43,223:INFO:Checking libraries
+2025-03-31 09:33:43,224:INFO:System:
+2025-03-31 09:33:43,224:INFO:    python: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+2025-03-31 09:33:43,224:INFO:executable: C:\Users\thuli\.virtual_envs\.Chlorum\Scripts\python.exe
+2025-03-31 09:33:43,224:INFO:   machine: Windows-10-10.0.26100-SP0
+2025-03-31 09:33:43,224:INFO:PyCaret required dependencies:
+2025-03-31 09:33:43,291:INFO:                 pip: 24.0
+2025-03-31 09:33:43,291:INFO:          setuptools: 65.5.0
+2025-03-31 09:33:43,291:INFO:             pycaret: 3.3.2
+2025-03-31 09:33:43,291:INFO:             IPython: 9.0.2
+2025-03-31 09:33:43,291:INFO:          ipywidgets: 8.1.5
+2025-03-31 09:33:43,291:INFO:                tqdm: 4.67.1
+2025-03-31 09:33:43,291:INFO:               numpy: 1.26.4
+2025-03-31 09:33:43,291:INFO:              pandas: 2.1.4
+2025-03-31 09:33:43,291:INFO:              jinja2: 3.1.6
+2025-03-31 09:33:43,291:INFO:               scipy: 1.11.4
+2025-03-31 09:33:43,292:INFO:              joblib: 1.3.2
+2025-03-31 09:33:43,292:INFO:             sklearn: 1.4.2
+2025-03-31 09:33:43,292:INFO:                pyod: 2.0.4
+2025-03-31 09:33:43,292:INFO:            imblearn: 0.13.0
+2025-03-31 09:33:43,292:INFO:   category_encoders: 2.7.0
+2025-03-31 09:33:43,292:INFO:            lightgbm: 4.6.0
+2025-03-31 09:33:43,292:INFO:               numba: 0.61.0
+2025-03-31 09:33:43,292:INFO:            requests: 2.32.3
+2025-03-31 09:33:43,292:INFO:          matplotlib: 3.7.5
+2025-03-31 09:33:43,292:INFO:          scikitplot: 0.3.7
+2025-03-31 09:33:43,292:INFO:         yellowbrick: 1.5
+2025-03-31 09:33:43,294:INFO:              plotly: 5.24.1
+2025-03-31 09:33:43,294:INFO:    plotly-resampler: Not installed
+2025-03-31 09:33:43,294:INFO:             kaleido: 0.2.1
+2025-03-31 09:33:43,294:INFO:           schemdraw: 0.15
+2025-03-31 09:33:43,294:INFO:         statsmodels: 0.14.4
+2025-03-31 09:33:43,294:INFO:              sktime: 0.26.0
+2025-03-31 09:33:43,294:INFO:               tbats: 1.1.3
+2025-03-31 09:33:43,294:INFO:            pmdarima: 2.0.4
+2025-03-31 09:33:43,294:INFO:              psutil: 7.0.0
+2025-03-31 09:33:43,294:INFO:          markupsafe: 3.0.2
+2025-03-31 09:33:43,294:INFO:             pickle5: Not installed
+2025-03-31 09:33:43,294:INFO:         cloudpickle: 3.1.1
+2025-03-31 09:33:43,294:INFO:         deprecation: 2.1.0
+2025-03-31 09:33:43,294:INFO:              xxhash: 3.5.0
+2025-03-31 09:33:43,295:INFO:           wurlitzer: Not installed
+2025-03-31 09:33:43,295:INFO:PyCaret optional dependencies:
+2025-03-31 09:33:43,315:INFO:                shap: Not installed
+2025-03-31 09:33:43,315:INFO:           interpret: Not installed
+2025-03-31 09:33:43,315:INFO:                umap: Not installed
+2025-03-31 09:33:43,315:INFO:     ydata_profiling: Not installed
+2025-03-31 09:33:43,315:INFO:  explainerdashboard: Not installed
+2025-03-31 09:33:43,315:INFO:             autoviz: Not installed
+2025-03-31 09:33:43,315:INFO:           fairlearn: Not installed
+2025-03-31 09:33:43,315:INFO:          deepchecks: Not installed
+2025-03-31 09:33:43,315:INFO:             xgboost: Not installed
+2025-03-31 09:33:43,315:INFO:            catboost: Not installed
+2025-03-31 09:33:43,315:INFO:              kmodes: Not installed
+2025-03-31 09:33:43,315:INFO:             mlxtend: Not installed
+2025-03-31 09:33:43,316:INFO:       statsforecast: Not installed
+2025-03-31 09:33:43,316:INFO:        tune_sklearn: Not installed
+2025-03-31 09:33:43,316:INFO:                 ray: Not installed
+2025-03-31 09:33:43,316:INFO:            hyperopt: Not installed
+2025-03-31 09:33:43,316:INFO:              optuna: Not installed
+2025-03-31 09:33:43,316:INFO:               skopt: Not installed
+2025-03-31 09:33:43,316:INFO:              mlflow: Not installed
+2025-03-31 09:33:43,316:INFO:              gradio: Not installed
+2025-03-31 09:33:43,316:INFO:             fastapi: Not installed
+2025-03-31 09:33:43,316:INFO:             uvicorn: Not installed
+2025-03-31 09:33:43,316:INFO:              m2cgen: Not installed
+2025-03-31 09:33:43,316:INFO:           evidently: Not installed
+2025-03-31 09:33:43,316:INFO:               fugue: Not installed
+2025-03-31 09:33:43,316:INFO:           streamlit: 1.44.0
+2025-03-31 09:33:43,316:INFO:             prophet: Not installed
+2025-03-31 09:33:43,316:INFO:None
+2025-03-31 09:33:43,316:INFO:Set up data.
+2025-03-31 09:33:43,354:INFO:Set up index.
+2025-03-31 09:33:43,355:INFO:Assigning column types.
+2025-03-31 09:33:43,377:INFO:Engine successfully changes for model 'kmeans' to 'sklearn'.
+2025-03-31 09:33:44,673:INFO:Engine successfully changes for model 'dbscan' to 'sklearn'.
+2025-03-31 09:33:44,675:INFO:Preparing preprocessing pipeline...
+2025-03-31 09:33:44,676:INFO:Set up simple imputation.
+2025-03-31 09:33:44,676:INFO:Set up removing outliers.
+2025-03-31 09:33:44,809:INFO:Finished creating preprocessing pipeline.
+2025-03-31 09:33:44,821:INFO:Pipeline: Pipeline(memory=FastMemory(location=C:\Users\thuli\AppData\Local\Temp\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_In...
+                                             'PIC11151A_MV_range_1h',
+                                             'PIC11151A_MV_mean_6h',
+                                             'PIC11151A_MV_std_6h',
+                                             'PIC11151A_MV_max_6h',
+                                             'PIC11151A_MV_min_6h',
+                                             'PIC11151A_MV_median_6h', ...],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123)))])
+2025-03-31 09:33:44,821:INFO:Creating final display dataframe.
+2025-03-31 09:33:45,461:INFO:Setup _display_container:                  Description                 Value
+0                 Session id                   123
+1        Original data shape            (2843, 96)
+2     Transformed data shape            (2701, 95)
+3            Ignore features                     1
+4           Numeric features                    95
+5   Rows with missing values                  0.0%
+6                 Preprocess                  True
+7            Imputation type                simple
+8         Numeric imputation                  mean
+9     Categorical imputation                  mode
+10           Remove outliers                  True
+11        Outliers threshold                  0.05
+12                  CPU Jobs                    -1
+13                   Use GPU                 False
+14            Log Experiment                 False
+15           Experiment Name  anomaly-default-name
+16                       USI                  ed7d
+2025-03-31 09:33:45,466:INFO:setup() successfully completed in 2.29s...............
+2025-03-31 09:33:45,466:INFO:Initializing create_model()
+2025-03-31 09:33:45,466:INFO:create_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x000001BCB06E8BD0>, estimator=svm, num_clusters=4, fraction=0.05, ground_truth=None, round=4, fit_kwargs=None, experiment_custom_tags=None, verbose=True, system=True, add_to_model_list=True, raise_num_clusters=False, display=None, kwargs={})
+2025-03-31 09:33:45,466:INFO:Checking exceptions
+2025-03-31 09:33:46,306:INFO:Importing untrained model
+2025-03-31 09:33:46,310:INFO:One-class SVM detector Imported successfully
+2025-03-31 09:33:46,352:INFO:Fitting Model
+2025-03-31 09:33:47,440:INFO:OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False)
+2025-03-31 09:33:47,441:INFO:create_models() successfully completed......................................
+2025-03-31 09:33:47,441:INFO:Uploading results into container
+2025-03-31 09:33:47,441:INFO:Uploading model into container now
+2025-03-31 09:33:47,441:INFO:_master_model_container: 1
+2025-03-31 09:33:47,442:INFO:_display_container: 1
+2025-03-31 09:33:47,442:INFO:OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False)
+2025-03-31 09:33:47,442:INFO:create_model() successfully completed......................................
+2025-03-31 09:33:47,540:INFO:Initializing save_model()
+2025-03-31 09:33:47,540:INFO:save_model(model=OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False), model_name=model, prep_pipe_=Pipeline(memory=FastMemory(location=C:\Users\thuli\AppData\Local\Temp\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_In...
+                                             'PIC11151A_MV_range_1h',
+                                             'PIC11151A_MV_mean_6h',
+                                             'PIC11151A_MV_std_6h',
+                                             'PIC11151A_MV_max_6h',
+                                             'PIC11151A_MV_min_6h',
+                                             'PIC11151A_MV_median_6h', ...],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123)))]), verbose=True, use_case=MLUsecase.ANOMALY, kwargs={})
+2025-03-31 09:33:47,540:INFO:Adding model into prep_pipe
+2025-03-31 09:33:47,609:INFO:model.pkl saved in current working directory
+2025-03-31 09:33:47,618:INFO:Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))])
+2025-03-31 09:33:47,618:INFO:save_model() successfully completed......................................
+2025-03-31 10:07:49,227:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:07:49,228:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:07:49,228:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:07:49,228:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:08:36,464:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:08:36,464:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:08:36,464:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:08:36,464:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:08:38,057:INFO:PyCaret AnomalyExperiment
+2025-03-31 10:08:38,057:INFO:Logging name: anomaly-default-name
+2025-03-31 10:08:38,057:INFO:ML Usecase: MLUsecase.ANOMALY
+2025-03-31 10:08:38,057:INFO:version 3.3.2
+2025-03-31 10:08:38,057:INFO:Initializing setup()
+2025-03-31 10:08:38,057:INFO:self.USI: efca
+2025-03-31 10:08:38,057:INFO:self._variable_keys: {'_ml_usecase', 'html_param', 'n_jobs_param', 'gpu_n_jobs_param', 'log_plots_param', 'seed', 'exp_id', 'data', 'gpu_param', 'idx', '_available_plots', 'logging_param', 'X', 'USI', 'exp_name_log', 'pipeline', 'memory'}
+2025-03-31 10:08:38,058:INFO:Checking environment
+2025-03-31 10:08:38,058:INFO:python_version: 3.11.9
+2025-03-31 10:08:38,058:INFO:python_build: ('tags/v3.11.9:de54cf5', 'Apr  2 2024 10:12:12')
+2025-03-31 10:08:38,058:INFO:machine: AMD64
+2025-03-31 10:08:38,072:INFO:platform: Windows-10-10.0.26100-SP0
+2025-03-31 10:08:38,076:INFO:Memory: svmem(total=8494747648, available=837091328, percent=90.1, used=7657656320, free=837091328)
+2025-03-31 10:08:38,076:INFO:Physical Core: 4
+2025-03-31 10:08:38,076:INFO:Logical Core: 8
+2025-03-31 10:08:38,076:INFO:Checking libraries
+2025-03-31 10:08:38,076:INFO:System:
+2025-03-31 10:08:38,076:INFO:    python: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+2025-03-31 10:08:38,076:INFO:executable: C:\Users\thuli\.virtual_envs\.Chlorum\Scripts\python.exe
+2025-03-31 10:08:38,076:INFO:   machine: Windows-10-10.0.26100-SP0
+2025-03-31 10:08:38,076:INFO:PyCaret required dependencies:
+2025-03-31 10:08:38,210:INFO:                 pip: 24.0
+2025-03-31 10:08:38,210:INFO:          setuptools: 65.5.0
+2025-03-31 10:08:38,210:INFO:             pycaret: 3.3.2
+2025-03-31 10:08:38,210:INFO:             IPython: 9.0.2
+2025-03-31 10:08:38,210:INFO:          ipywidgets: 8.1.5
+2025-03-31 10:08:38,210:INFO:                tqdm: 4.67.1
+2025-03-31 10:08:38,210:INFO:               numpy: 1.26.4
+2025-03-31 10:08:38,210:INFO:              pandas: 2.1.4
+2025-03-31 10:08:38,210:INFO:              jinja2: 3.1.6
+2025-03-31 10:08:38,210:INFO:               scipy: 1.11.4
+2025-03-31 10:08:38,210:INFO:              joblib: 1.3.2
+2025-03-31 10:08:38,210:INFO:             sklearn: 1.4.2
+2025-03-31 10:08:38,210:INFO:                pyod: 2.0.4
+2025-03-31 10:08:38,210:INFO:            imblearn: 0.13.0
+2025-03-31 10:08:38,211:INFO:   category_encoders: 2.7.0
+2025-03-31 10:08:38,211:INFO:            lightgbm: 4.6.0
+2025-03-31 10:08:38,211:INFO:               numba: 0.61.0
+2025-03-31 10:08:38,211:INFO:            requests: 2.32.3
+2025-03-31 10:08:38,211:INFO:          matplotlib: 3.7.5
+2025-03-31 10:08:38,211:INFO:          scikitplot: 0.3.7
+2025-03-31 10:08:38,211:INFO:         yellowbrick: 1.5
+2025-03-31 10:08:38,211:INFO:              plotly: 5.24.1
+2025-03-31 10:08:38,211:INFO:    plotly-resampler: Not installed
+2025-03-31 10:08:38,211:INFO:             kaleido: 0.2.1
+2025-03-31 10:08:38,211:INFO:           schemdraw: 0.15
+2025-03-31 10:08:38,211:INFO:         statsmodels: 0.14.4
+2025-03-31 10:08:38,211:INFO:              sktime: 0.26.0
+2025-03-31 10:08:38,211:INFO:               tbats: 1.1.3
+2025-03-31 10:08:38,211:INFO:            pmdarima: 2.0.4
+2025-03-31 10:08:38,211:INFO:              psutil: 7.0.0
+2025-03-31 10:08:38,211:INFO:          markupsafe: 3.0.2
+2025-03-31 10:08:38,211:INFO:             pickle5: Not installed
+2025-03-31 10:08:38,212:INFO:         cloudpickle: 3.1.1
+2025-03-31 10:08:38,212:INFO:         deprecation: 2.1.0
+2025-03-31 10:08:38,212:INFO:              xxhash: 3.5.0
+2025-03-31 10:08:38,212:INFO:           wurlitzer: Not installed
+2025-03-31 10:08:38,212:INFO:PyCaret optional dependencies:
+2025-03-31 10:08:38,228:INFO:                shap: Not installed
+2025-03-31 10:08:38,228:INFO:           interpret: Not installed
+2025-03-31 10:08:38,228:INFO:                umap: Not installed
+2025-03-31 10:08:38,228:INFO:     ydata_profiling: Not installed
+2025-03-31 10:08:38,228:INFO:  explainerdashboard: Not installed
+2025-03-31 10:08:38,228:INFO:             autoviz: Not installed
+2025-03-31 10:08:38,228:INFO:           fairlearn: Not installed
+2025-03-31 10:08:38,228:INFO:          deepchecks: Not installed
+2025-03-31 10:08:38,228:INFO:             xgboost: Not installed
+2025-03-31 10:08:38,228:INFO:            catboost: Not installed
+2025-03-31 10:08:38,228:INFO:              kmodes: Not installed
+2025-03-31 10:08:38,228:INFO:             mlxtend: Not installed
+2025-03-31 10:08:38,229:INFO:       statsforecast: Not installed
+2025-03-31 10:08:38,229:INFO:        tune_sklearn: Not installed
+2025-03-31 10:08:38,229:INFO:                 ray: Not installed
+2025-03-31 10:08:38,229:INFO:            hyperopt: Not installed
+2025-03-31 10:08:38,229:INFO:              optuna: Not installed
+2025-03-31 10:08:38,229:INFO:               skopt: Not installed
+2025-03-31 10:08:38,229:INFO:              mlflow: Not installed
+2025-03-31 10:08:38,229:INFO:              gradio: Not installed
+2025-03-31 10:08:38,229:INFO:             fastapi: Not installed
+2025-03-31 10:08:38,229:INFO:             uvicorn: Not installed
+2025-03-31 10:08:38,229:INFO:              m2cgen: Not installed
+2025-03-31 10:08:38,229:INFO:           evidently: Not installed
+2025-03-31 10:08:38,229:INFO:               fugue: Not installed
+2025-03-31 10:08:38,229:INFO:           streamlit: 1.44.0
+2025-03-31 10:08:38,229:INFO:             prophet: Not installed
+2025-03-31 10:08:38,229:INFO:None
+2025-03-31 10:08:38,229:INFO:Set up data.
+2025-03-31 10:08:38,256:INFO:Set up index.
+2025-03-31 10:08:38,256:INFO:Assigning column types.
+2025-03-31 10:08:38,272:INFO:Engine successfully changes for model 'kmeans' to 'sklearn'.
+2025-03-31 10:08:39,715:INFO:Engine successfully changes for model 'dbscan' to 'sklearn'.
+2025-03-31 10:08:39,745:INFO:Preparing preprocessing pipeline...
+2025-03-31 10:08:39,745:INFO:Set up simple imputation.
+2025-03-31 10:08:39,745:INFO:Set up removing outliers.
+2025-03-31 10:08:39,866:INFO:Finished creating preprocessing pipeline.
+2025-03-31 10:08:39,878:INFO:Pipeline: Pipeline(memory=FastMemory(location=C:\Users\thuli\AppData\Local\Temp\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_In...
+                                             'PIC11151A_MV_range_1h',
+                                             'PIC11151A_MV_mean_6h',
+                                             'PIC11151A_MV_std_6h',
+                                             'PIC11151A_MV_max_6h',
+                                             'PIC11151A_MV_min_6h',
+                                             'PIC11151A_MV_median_6h', ...],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123)))])
+2025-03-31 10:08:39,878:INFO:Creating final display dataframe.
+2025-03-31 10:08:40,505:INFO:Setup _display_container:                  Description                 Value
+0                 Session id                   123
+1        Original data shape            (2843, 96)
+2     Transformed data shape            (2701, 95)
+3            Ignore features                     1
+4           Numeric features                    95
+5   Rows with missing values                  0.0%
+6                 Preprocess                  True
+7            Imputation type                simple
+8         Numeric imputation                  mean
+9     Categorical imputation                  mode
+10           Remove outliers                  True
+11        Outliers threshold                  0.05
+12                  CPU Jobs                    -1
+13                   Use GPU                 False
+14            Log Experiment                 False
+15           Experiment Name  anomaly-default-name
+16                       USI                  efca
+2025-03-31 10:08:40,509:INFO:setup() successfully completed in 2.46s...............
+2025-03-31 10:08:40,509:INFO:Initializing create_model()
+2025-03-31 10:08:40,511:INFO:create_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x00000205723598D0>, estimator=svm, num_clusters=4, fraction=0.05, ground_truth=None, round=4, fit_kwargs=None, experiment_custom_tags=None, verbose=True, system=True, add_to_model_list=True, raise_num_clusters=False, display=None, kwargs={})
+2025-03-31 10:08:40,511:INFO:Checking exceptions
+2025-03-31 10:08:41,110:INFO:Importing untrained model
+2025-03-31 10:08:41,110:INFO:One-class SVM detector Imported successfully
+2025-03-31 10:08:41,122:INFO:Fitting Model
+2025-03-31 10:08:42,189:INFO:OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False)
+2025-03-31 10:08:42,189:INFO:create_models() successfully completed......................................
+2025-03-31 10:08:42,190:INFO:Uploading results into container
+2025-03-31 10:08:42,190:INFO:Uploading model into container now
+2025-03-31 10:08:42,190:INFO:_master_model_container: 1
+2025-03-31 10:08:42,190:INFO:_display_container: 1
+2025-03-31 10:08:42,190:INFO:OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False)
+2025-03-31 10:08:42,190:INFO:create_model() successfully completed......................................
+2025-03-31 10:08:42,286:INFO:Initializing save_model()
+2025-03-31 10:08:42,286:INFO:save_model(model=OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False), model_name=model, prep_pipe_=Pipeline(memory=FastMemory(location=C:\Users\thuli\AppData\Local\Temp\joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_In...
+                                             'PIC11151A_MV_range_1h',
+                                             'PIC11151A_MV_mean_6h',
+                                             'PIC11151A_MV_std_6h',
+                                             'PIC11151A_MV_max_6h',
+                                             'PIC11151A_MV_min_6h',
+                                             'PIC11151A_MV_median_6h', ...],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123)))]), verbose=True, use_case=MLUsecase.ANOMALY, kwargs={})
+2025-03-31 10:08:42,286:INFO:Adding model into prep_pipe
+2025-03-31 10:08:42,356:INFO:model.pkl saved in current working directory
+2025-03-31 10:08:42,367:INFO:Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))])
+2025-03-31 10:08:42,367:INFO:save_model() successfully completed......................................
+2025-03-31 10:19:33,720:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:19:33,720:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:19:33,720:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:19:33,720:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:20:15,428:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:20:15,428:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:20:15,428:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:20:15,428:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:21:31,424:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:21:31,424:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:21:31,424:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:21:31,424:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:21:32,873:INFO:Initializing load_model()
+2025-03-31 10:21:32,873:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:21:33,334:INFO:Initializing predict_model()
+2025-03-31 10:21:33,334:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x0000013E693C9C90>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:21:33,334:INFO:Set up data.
+2025-03-31 10:21:33,391:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:21:33,938:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:28:09,639:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:28:09,639:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:28:09,639:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:28:09,639:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:28:11,612:INFO:Initializing load_model()
+2025-03-31 10:28:11,612:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:28:12,062:INFO:Initializing predict_model()
+2025-03-31 10:28:12,062:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x000001CFEBF01C90>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:28:12,062:INFO:Set up data.
+2025-03-31 10:28:12,106:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:28:12,663:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:30:04,235:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:30:04,235:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:30:04,235:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:30:04,235:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:30:05,804:INFO:Initializing load_model()
+2025-03-31 10:30:05,804:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:30:06,212:INFO:Initializing predict_model()
+2025-03-31 10:30:06,212:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x0000025436A0B650>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:30:06,212:INFO:Set up data.
+2025-03-31 10:30:06,251:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:30:06,792:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:36:49,485:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:36:49,485:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:36:49,485:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:36:49,485:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:36:52,232:INFO:Initializing load_model()
+2025-03-31 10:36:52,232:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:36:52,967:INFO:Initializing predict_model()
+2025-03-31 10:36:52,967:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x000001DAA232EA50>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:36:52,967:INFO:Set up data.
+2025-03-31 10:36:53,009:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:36:53,550:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:42:49,498:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:42:49,498:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:42:49,498:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:42:49,498:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:42:51,163:INFO:Initializing load_model()
+2025-03-31 10:42:51,163:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:42:51,610:INFO:Initializing predict_model()
+2025-03-31 10:42:51,610:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x0000026C583D3050>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:42:51,610:INFO:Set up data.
+2025-03-31 10:42:51,650:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:42:52,180:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:48:41,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:48:41,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:48:41,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:48:41,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:48:43,469:INFO:Initializing load_model()
+2025-03-31 10:48:43,469:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:48:43,909:INFO:Initializing predict_model()
+2025-03-31 10:48:43,909:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x00000206618F3050>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:48:43,909:INFO:Set up data.
+2025-03-31 10:48:43,951:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:48:44,500:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:51:31,688:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:31,688:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:31,688:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:31,688:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:33,162:INFO:Initializing load_model()
+2025-03-31 10:51:33,162:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:51:33,585:INFO:Initializing predict_model()
+2025-03-31 10:51:33,585:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x0000012ED22CF410>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:51:33,585:INFO:Set up data.
+2025-03-31 10:51:33,624:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:51:34,173:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:51:59,859:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:59,859:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:59,859:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:51:59,859:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 10:52:01,394:INFO:Initializing load_model()
+2025-03-31 10:52:01,395:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 10:52:01,841:INFO:Initializing predict_model()
+2025-03-31 10:52:01,841:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x000001E91A799CD0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 10:52:01,841:INFO:Set up data.
+2025-03-31 10:52:01,878:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 10:52:02,405:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 11:01:14,173:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 11:01:14,173:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 11:01:14,173:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 11:01:14,173:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 11:01:15,677:INFO:Initializing load_model()
+2025-03-31 11:01:15,677:INFO:load_model(model_name=model, platform=None, authentication=None, verbose=True)
+2025-03-31 11:01:16,123:INFO:Initializing predict_model()
+2025-03-31 11:01:16,123:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x00000252BAFEF7D0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-03-31 11:01:16,123:INFO:Set up data.
+2025-03-31 11:01:16,175:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 11:01:16,717:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-03-31 12:00:29,055:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 12:00:29,057:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 12:00:29,058:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-31 12:00:29,058:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
