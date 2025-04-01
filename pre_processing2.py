@@ -52,7 +52,7 @@ def create_aggregated_df(df, columns_to_aggregate, window_sizes):
     
   """
   Creates a new DataFrame with aggregated values for specified columns,
-  including the number of times the original value crosses the 6h moving average.
+  including the number of times the original Value crosses the 6h moving average.
 
   Args:
     df: The input DataFrame.
@@ -79,7 +79,7 @@ def create_aggregated_df(df, columns_to_aggregate, window_sizes):
 
         # Calculate crossings against the overall 6h moving average
         if window_size == 6:
-          # Shift to compare with the previous value
+          # Shift to compare with the previous Value
           df[f'{column}_shifted'] = df[column].shift(1)
           # Count crossings using a vectorized approach
           df_agg['crossings_6h'] = (
