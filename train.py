@@ -4,7 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 import scipy.signal
 import os
-import pre_processing2 as prep
+import pre_processing as prep
 import psycopg2 as pg
 from dotenv import load_dotenv
 

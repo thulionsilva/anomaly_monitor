@@ -2,17 +2,8 @@ from pycaret.anomaly import load_model, predict_model
 import os
 import pandas as pd
 from sqlalchemy.engine import cursor
-import pre_processing2 as prep
-import tkinter as tk
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-
+import pre_processing as prep
 import psycopg2 as pg
-import sys
-import uuid
-import pytz
-from datetime import datetime, timedelta
-from sqlalchemy import VARBINARY, create_engine, null, text
 from dotenv import load_dotenv
 
 # Load environment variables from the .env file

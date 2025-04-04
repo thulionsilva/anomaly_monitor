@@ -1,0 +1,37 @@
+2025-04-03 21:11:52,366:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-04-03 21:11:52,366:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-04-03 21:11:52,366:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-04-03 21:11:52,366:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-04-03 21:11:57,460:INFO:Initializing load_model()
+2025-04-03 21:11:57,460:INFO:load_model(model_name=./models/PIC11151A, platform=None, authentication=None, verbose=True)
+2025-04-03 21:11:58,994:INFO:Initializing predict_model()
+2025-04-03 21:11:58,994:INFO:predict_model(self=<pycaret.anomaly.oop.AnomalyExperiment object at 0x000002663341CF90>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(include=['PIC11151A_-_SP_Int_Ext_mean_1h',
+                                             'PIC11151A_-_SP_Int_Ext_std_1h',
+                                             'PIC11151A_-_SP_Int_Ext_max_1h',
+                                             'PIC11151A_-_SP_Int_Ext_min_1h',
+                                             'PIC11151A_-_SP_Int_Ext_median_1h',
+                                             'PIC11151A_-_SP_Int_Ext_range_1h',
+                                             'PIC11151A_-_SP_Int_Ext_mean_6h',
+                                             'PIC11151A_-_SP_Int_Ext_s...
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('remove_outliers',
+                 TransformerWrapper(transformer=RemoveOutliers(random_state=123))),
+                ('trained_model',
+                 OCSVM(cache_size=200, coef0=0.0, contamination=0.05, degree=3, gamma='auto',
+   kernel='rbf', max_iter=-1, nu=0.5, shrinking=True, tol=0.001,
+   verbose=False))]), ml_usecase=None)
+2025-04-03 21:11:58,994:INFO:Set up data.
+2025-04-03 21:11:59,028:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
+2025-04-03 21:11:59,143:WARNING:C:\Users\thuli\.virtual_envs\.Chlorum\Lib\site-packages\sklearn\base.py:486: UserWarning: X has feature names, but OneClassSVM was fitted without feature names
+  warnings.warn(
+
