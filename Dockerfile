@@ -3,7 +3,7 @@ FROM python:3.11.6-alpine
 WORKDIR /src
 
 COPY ./requirements.txt ./requirements.txt
-COPY train.py predict.py preprocessing2.py .
+COPY train.py predict.py preprocessing.py .
 
 RUN pip3 install --upgrade pip
 

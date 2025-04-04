@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -f /src/models/PIC11151A.pkl ] || python /src/train.py
+
 #Apaga toda as tarefas do crontab para evitar duplicado
 crontab -r 2>/dev/null
 
