@@ -139,7 +139,6 @@ try:
             window = 15 #The script will run every 15 minutes
 
             predictions = pd.concat([predictions, dataset['Timestamp']], axis=1).tail(window)
-            print(predictions.describe())
             for index, row in predictions.iterrows():
                 # Create the INSERT query
 
