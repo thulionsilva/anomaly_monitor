@@ -111,7 +111,7 @@ def create_aggregated_df(df, columns_to_aggregate, window_sizes):
 
   return df2
 
-def filter_columns(dataset, dftrain):
+def filter_columns(dftrain):
     """
     Filters the dataset and dftrain to include only columns containing '_1', '_6', or '_12', and the 'Timestamp' column.
 
@@ -123,17 +123,16 @@ def filter_columns(dataset, dftrain):
         tuple: A tuple containing the filtered dataset and dftrain (dataset_filtered, dftrain_filtered).
     """
     selected_columns = ['Timestamp']
-    for column in dataset.columns:
+    for column in dftrain.columns:
         if '_1' in column or '_6' in column or '_12' in column:
             selected_columns.append(column)
 
-    dataset_filtered = dataset[selected_columns]
     dftrain_filtered = dftrain[selected_columns]
     dftrain = dftrain[dftrain['II113RC001_U_mean_1h']>16.5]
-    return dataset_filtered, dftrain_filtered
+    return dftrain_filtered
 
 
-def treat_data(df):
+def treat_data(df, tag_name):
     df['Timestamp'] = pd.to_datetime(df['Timestamp'], unit='ms')
     df = pivot_dataframe_column(df, 'Timestamp', 'Variable', 'Value')
     # print(df.describe())
@@ -141,7 +140,8 @@ def treat_data(df):
     # Filter columns that contain '11151A' or 'II113RC001_U' in their names
     # df1 = df[['Timestamp'] + [col for col in df.columns if '11151A' in col] + [col for col in df.columns if 'II113RC001_U' in col]]
 
-    columns_to_aggregate = ['P11151A_U', 'PIC11151A_-_SP_Int_Ext', 'PIC11151A_MV', 'PIC11151A_PV_IN', 'PIC11151A_SP','II113RC001_U']
+    # columns_to_aggregate = ['P11151A_U', 'PIC11151A_-_SP_Int_Ext', 'PIC11151A_MV', 'PIC11151A_PV_IN', 'PIC11151A_SP','II113RC001_U']
+    columns_to_aggregate = [f'{tag_name}_-_SP_Int_Ext', f'{tag_name}_MV', f'{tag_name}_PV_IN', f'{tag_name}_SP','II113RC001_U']
     window_sizes = [1, 6, 12]
 
     df2 = create_aggregated_df(df, columns_to_aggregate, window_sizes)
