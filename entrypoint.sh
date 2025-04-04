@@ -1,27 +1,35 @@
 #!/bin/bash
 
-[ -f /src/models/PIC11151A.pkl ] || python /src/train.py
+# Ensure the script exits on failure
+set -e
 
-#Apaga toda as tarefas do crontab para evitar duplicado
-crontab -r 2>/dev/null
+# Check if the model file exists; if not, train the model
+[ -f /src/models/PIC11151A.pkl ] || python3 /src/train.py
+
+# Remove all existing cron jobs to avoid duplicates
+crontab -r 2>/dev/null || true
 
 INTERVAL=$CRON_INTERVAL
-# Certifique-se de que a variável CRON_INTERVAL está definida
+# Ensure CRON_INTERVAL is defined
 if [ -z "$CRON_INTERVAL" ]; then
   INTERVAL="*/15 * * * *"
 fi
 
-# Defina o comando que você deseja executar
-COMMAND="python /src/predict.py > /src/crontab/predict.log 2>&1"
+# Define the command to be executed
+COMMAND="python3 /src/predict.py > /src/crontab/predict.log 2>&1"
 
-# Pasta de logs
+# Create the log directory
 mkdir -p /src/crontab
 
-# Adicione a tarefa ao crontab
+# Add the cron job
 (crontab -l 2>/src/crontab/log; echo "$INTERVAL $COMMAND") | crontab -
 
-# Listar os jobs do crontab
-echo "Jobs atuais no crontab:"
+# List the current cron jobs
+echo "Current cron jobs:"
 crontab -l
 
-crond -f
+# Start the cron service
+service cron start
+
+# Keep the container running
+tail -f /dev/null
