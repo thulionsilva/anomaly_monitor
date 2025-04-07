@@ -1,0 +1,17 @@
+services:
+  anomaly_monitor:
+    image: mekatronik/anomaly_monitor:0.0.1
+    container_name: anomaly_monitor
+    restart: unless-stopped
+    environment:
+      ENV: "prod"
+      POSTGRES_DB: postgres
+      POSTGRES_HOST: timescaledb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+      VARIABLES_SCHEMA: variables
+      MENDIX_SCHEMA: mendix
+      CRON_INTERVAL: "*/15 * * * *"
+    volumes:
+      - ./volumes/anomaly_monitor/models:/src/models
+      - ./volumes/anomaly_monitor/crontab:/src/crontab
