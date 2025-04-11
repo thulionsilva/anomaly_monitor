@@ -22,7 +22,7 @@ COMMAND="python3 /src/predict.py > /src/crontab/predict.log 2>&1"
 mkdir -p /src/crontab
 
 # Add the cron job
-(crontab -l 2>/src/crontab/log; echo "$INTERVAL $COMMAND") | crontab -
+(crontab -l 2>/src/crontab/log || true; echo "$INTERVAL $COMMAND") | crontab -
 
 # List the current cron jobs
 echo "Current cron jobs:"
