@@ -33,4 +33,4 @@ crontab -l
 
 
 # Keep the container running
-# tail -f /dev/null
+ tail -f /dev/null
