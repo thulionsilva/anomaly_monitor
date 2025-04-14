@@ -19,7 +19,7 @@ if [ -z "$CRON_INTERVAL" ]; then
 fi
 
 # Define the command to be executed
-COMMAND="python3 /src/predict.py > /src/crontab/predict.log 2>&1"
+COMMAND="/opt/conda/bin/python3 /src/predict.py > /src/crontab/predict.log 2>&1"
 
 # Create the log directory
 mkdir -p /src/crontab
