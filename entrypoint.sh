@@ -3,6 +3,9 @@
 # Ensure the script exits on failure
 set -e
 
+# Start the cron service
+service cron start
+
 # Check if the model file exists; if not, train the model
 [ -f /src/models/PIC11151A.pkl ] || python3 /src/train.py
 
@@ -28,8 +31,6 @@ mkdir -p /src/crontab
 echo "Current cron jobs:"
 crontab -l
 
-# Start the cron service
-service cron start
 
 # Keep the container running
-tail -f /dev/null
+# tail -f /dev/null
