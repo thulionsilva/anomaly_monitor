@@ -5,7 +5,7 @@ USER root
 WORKDIR /src
 
 COPY ./requirements.txt ./requirements.txt
-COPY train.py predict.py pre_processing.py .
+COPY train.py predict.py pre_processing.py .env .
 
 RUN apt-get update && apt-get install -y cron
 

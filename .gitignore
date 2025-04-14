@@ -1,4 +1,5 @@
 .env
+.venv
 .anomaly_env/
 csv/
 *.ipynb
