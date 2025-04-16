@@ -10,17 +10,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ENV = os.environ.get("ENV")  # prod or debug
-POSTGRES_DB = os.environ.get("POSTGRES_DB")
 POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
 POSTGRES_USER = os.environ.get("POSTGRES_USER")
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
 DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
 MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
 VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
+POSTGRES_DB = os.environ.get("POSTGRES_DB")
+POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
 
-
-#         dataset (pd.DataFrame): The original dataset.
-#         dftrain (pd.DataFrame): The training dataset.
 
 """ ******************* PostgreSQL Connection and Querying ******************* """
 
@@ -111,77 +109,65 @@ def insert_new_data(cursor, values):
 
 """******************* Vizualization of the predictions using Tkinter and Matplotlib *******************"""
 
+if __name__ == "__main__":
+    db_config = {
+        'database': POSTGRES_DB ,
+        'user': POSTGRES_USER,
+        'password': POSTGRES_PASSWORD,
+        'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
+        'port': POSTGRES_PORT       # Default PostgreSQL port
+    }
 
+    # Parameters for the query
+    # tags = [(1, 'PIC11151A'), (2, 'FIC11121'), (3, 'FIC11120'), (4, 'TIC12102'), (5, 'PIC05101'), (6, 'PIC07814')] 
+    tags = [(1, 'PIC11151A')] 
 
-#POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
-POSTGRES_USER = os.environ.get("POSTGRES_USER")
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
-DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
-MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
-VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
-POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
+    # Creating postgres connection
+    conn = None
+    cursor = None
+    try:
+        print("Connecting to the PostgreSQL database...")
+        conn = pg.connect(**db_config)
 
+        # Create a cursor
+        cursor = conn.cursor()
+        # --- Run the query ---
+        # dataset, cursor, conn = get_data_with_in_clause(db_params=db_config)
+        if conn and cursor:
+            for tag_anomaly_id, tag_name in tags:
 
-db_config = {
-    'database': POSTGRES_DB ,
-    'user': POSTGRES_USER,
-    'password': POSTGRES_PASSWORD,
-    'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
-    'port': POSTGRES_PORT       # Default PostgreSQL port
-}
+                current_path = os.path.dirname(os.path.abspath(__file__))
+                model_path = os.path.join(current_path, tag_name)
+                m = load_model(f'./models/{tag_name}')
 
-# Parameters for the query
-# tags = [(1, 'PIC11151A'), (2, 'FIC11121'), (3, 'FIC11120'), (4, 'TIC12102'), (5, 'PIC05101'), (6, 'PIC07814')] 
-tags = [(1, 'PIC11151A')] 
+                #call the function to delete old data
+                delete_old_data(cursor, tag_anomaly_id)
 
-# Creating postgres connection
-conn = None
-cursor = None
-try:
-    print("Connecting to the PostgreSQL database...")
-    conn = pg.connect(**db_config)
+                for upper_offset in range(4):
+                    dataset= get_data_with_in_clause(cursor, tag_name, upper_offset+1, upper_offset)
+                    dataset = prep.treat_data(dataset, tag_name)
+                    dataset_filtered = prep.filter_columns(dataset)
 
-    # Create a cursor
-    cursor = conn.cursor()
-    # --- Run the query ---
-    # dataset, cursor, conn = get_data_with_in_clause(db_params=db_config)
-    if conn and cursor:
-        for tag_anomaly_id, tag_name in tags:
+                    predictions = predict_model(m, data=dataset_filtered.drop(columns=['Timestamp']))
+                    predictions = pd.concat([predictions, dataset['Timestamp']], axis=1)
 
-            current_path = os.path.dirname(os.path.abspath(__file__))
-            model_path = os.path.join(current_path, tag_name)
-            m = load_model(f'./models/{tag_name}')
+                    for index, row in predictions.iterrows():
+                        values = (tag_anomaly_id, row['Anomaly_Score'], row['Timestamp'], tag_anomaly_id)
+                        insert_new_data(cursor, values)
 
-            #call the function to delete old data
-            delete_old_data(cursor, tag_anomaly_id)
-
-            for upper_offset in range(4):
-                dataset= get_data_with_in_clause(cursor, tag_name, upper_offset+1, upper_offset)
-                dataset = prep.treat_data(dataset, tag_name)
-                dataset_filtered = prep.filter_columns(dataset)
-
-                predictions = predict_model(m, data=dataset_filtered.drop(columns=['Timestamp']))
-                predictions = pd.concat([predictions, dataset['Timestamp']], axis=1)
-
-                for index, row in predictions.iterrows():
-                    values = (tag_anomaly_id, row['Anomaly_Score'], row['Timestamp'], tag_anomaly_id)
-                    insert_new_data(cursor, values)
-
-                print("Success")
-                conn.commit()
-    else:
-        print('No connection or cursor was found')
-except Exception as e:
-    if conn:
-        conn.rollback()
-        print("Error while conecting to database!")
-    print(e)
-finally:
-    if conn and cursor:
-        cursor.close()
-        conn.close()
-        print("PostgreSQL connection closed.")
+                    print("Success")
+                    conn.commit()
+        else:
+            print('No connection or cursor was found')
+    except Exception as e:
+        if conn:
+            conn.rollback()
+            print("Error while conecting to database!")
+        print(e)
+    finally:
+        if conn and cursor:
+            cursor.close()
+            conn.close()
+            print("PostgreSQL connection closed.")
 
 

@@ -1,6 +1,5 @@
 .env
-.venv
-.anomaly_env/
+.anomaly_monitor/
 csv/
 *.ipynb
 __pycache__

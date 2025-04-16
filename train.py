@@ -10,6 +10,14 @@ from dotenv import load_dotenv
 
 # Load environment variables from the .env file
 load_dotenv()
+POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
+POSTGRES_USER = os.environ.get("POSTGRES_USER")
+POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
+MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
+VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
+POSTGRES_DB = os.environ.get("POSTGRES_DB")
+POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
 
 """ Query training data from postgreSQL database """
 def get_training_data(conn, cursor,start_date, end_date, tag_name):
@@ -110,65 +118,49 @@ def set_negative_II113RC001_U_mean_to_zero(df):
   return df
 
 
-# reference_interval_start = input("Insert start date(YYYY-MM-DD HH:MM:SS): ")
-# reference_interval_end = input("Insert end date(YYYY-MM-DD HH:MM:SS): ")
-# if reference_interval_start == '' or reference_interval_end == '':
-#     reference_interval_start = '2025-03-29 10:38:00'
-#     reference_interval_end = '2025-03-31 10:00:00'
 
-# verification_interval_start = '2025-03-31 10:00:00'
-# verification_interval_end = '2025-03-31 10:36:00'
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
-POSTGRES_USER = os.environ.get("POSTGRES_USER")
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
-DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
-MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
-VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
-POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
+if __name__ == "__main__":
+    db_config = {
+        'database': POSTGRES_DB ,
+        'user': POSTGRES_USER,
+        'password': POSTGRES_PASSWORD,
+        'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
+        'port': POSTGRES_PORT       # Default PostgreSQL port
+    }
+    conn = None
+    cursor = None
+    try:
 
+        tags = [('2025-03-12 12:20:00', '2025-04-01 00:00:00', 'PIC11151A')]
+        conn = pg.connect(**db_config)
+        cursor = conn.cursor()
+        current_path = os.path.dirname(os.path.abspath(__file__))
+        # Create dftrain using the first function
+        folder_path = os.getcwd()
 
-db_config = {
-    'database': POSTGRES_DB ,
-    'user': POSTGRES_USER,
-    'password': POSTGRES_PASSWORD,
-    'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
-    'port': POSTGRES_PORT       # Default PostgreSQL port
-}
-conn = None
-cursor = None
-try:
+        for start_date, end_date, tag_name in tags:
+            dataset= get_training_data(conn, cursor, start_date, end_date, tag_name)
+            dataset = prep.treat_data(dataset, tag_name)
+            # dataset = prep.treat_data(pd.read_csv(os.path.join(folder_path,'training_data', f'{tag_name}.csv')), tag_name)
+            dftrain = dataset
 
-    tags = [('2025-03-12 12:20:00', '2025-04-01 00:00:00', 'PIC11151A')]
-    conn = pg.connect(**db_config)
-    cursor = conn.cursor()
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    # Create dftrain using the first function
-    folder_path = os.getcwd()
-
-    for start_date, end_date, tag_name in tags:
-        dataset= get_training_data(conn, cursor, start_date, end_date, tag_name)
-        dataset = prep.treat_data(dataset, tag_name)
-        # dataset = prep.treat_data(pd.read_csv(os.path.join(folder_path,'training_data', f'{tag_name}.csv')), tag_name)
-        dftrain = dataset
-
-        # Filter columns using the second functio
-        dftrain_filtered = prep.filter_columns(dftrain)
+            # Filter columns using the second functio
+            dftrain_filtered = prep.filter_columns(dftrain)
 
 
-        s = setup(data=dftrain_filtered, session_id=123, normalize=False, ignore_features=['Timestamp'], remove_outliers = True)
-        m = create_model('svm')
-        model_path = os.path.join(current_path,'models', tag_name)
-        save_model(m, model_path)
-    conn.commit()
-except Exception as e:
-    print("failed to get training data, error: ")
-    print(e)
-    if conn:
-        conn.rollback()
+            s = setup(data=dftrain_filtered, session_id=123, normalize=False, ignore_features=['Timestamp'], remove_outliers = True)
+            m = create_model('svm')
+            model_path = os.path.join(current_path,'models', tag_name)
+            save_model(m, model_path)
+        conn.commit()
+    except Exception as e:
+        print("failed to get training data, error: ")
+        print(e)
+        if conn:
+            conn.rollback()
 
-finally:
-    if conn and cursor:
-        cursor.close()
-        conn.close()
-        print("PostgreSQL connection closed")
+    finally:
+        if conn and cursor:
+            cursor.close()
+            conn.close()
+            print("PostgreSQL connection closed")
