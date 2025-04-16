@@ -86,7 +86,12 @@ def get_data_with_in_clause(conn, cursor, tag_name):
 
 
 
-"""******************* Vizualization of the predictions using Tkinter and Matplotlib *******************"""
+"""******************* Get Tag Id *******************"""
+def get_anomaly_tags(cursor):
+    query = f""" SELECT id, description FROM {VARIABLES_SCHEMA}.params_calc WHERE description like '%\\AS'; """
+    cursor.execute(query)
+    return cursor.fetchall()
+
 
 
 
@@ -111,7 +116,6 @@ db_config = {
 
 # Parameters for the query
 # tags = [(1, 'PIC11151A'), (2, 'FIC11121'), (3, 'FIC11120'), (4, 'TIC12102'), (5, 'PIC05101'), (6, 'PIC07814')] 
-tags = [(1, 'PIC11151A')] 
 
 # Creating postgres connection
 conn = None
@@ -122,10 +126,10 @@ try:
 
     # Create a cursor
     cursor = conn.cursor()
-    # --- Run the query ---
-    # dataset, cursor, conn = get_data_with_in_clause(db_params=db_config)
+    tags = get_anomaly_tags(cursor)
     if conn and cursor:
         for tag_anomaly_id, tag_name in tags:
+            tag_name = tag_name.split("\\")[0] #remove the \AS from the tag name
             dataset= get_data_with_in_clause(conn, cursor, tag_name)
             current_path = os.path.dirname(os.path.abspath(__file__))
             model_path = os.path.join(current_path, tag_name)
