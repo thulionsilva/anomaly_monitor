@@ -17,10 +17,8 @@ POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
 DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
 MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
 VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
+POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
 
-
-#         dataset (pd.DataFrame): The original dataset.
-#         dftrain (pd.DataFrame): The training dataset.
 
 """ ******************* PostgreSQL Connection and Querying ******************* """
 
@@ -95,83 +93,74 @@ def get_anomaly_tags(cursor):
 
 
 
-#POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
-POSTGRES_USER = os.environ.get("POSTGRES_USER")
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
-DETECTOR_SCHEMA = os.environ.get("DETECTOR_SCHEMA")
-MENDIX_SCHEMA = os.environ.get("MENDIX_SCHEMA")
-VARIABLES_SCHEMA = os.environ.get("VARIABLES_SCHEMA")
-POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
+if __name__ == "__main__":
 
+    db_config = {
+        'database': POSTGRES_DB ,
+        'user': POSTGRES_USER,
+        'password': POSTGRES_PASSWORD,
+        'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
+        'port': POSTGRES_PORT       # Default PostgreSQL port
+    }
 
-db_config = {
-    'database': POSTGRES_DB ,
-    'user': POSTGRES_USER,
-    'password': POSTGRES_PASSWORD,
-    'host': POSTGRES_HOST,  # e.g., 'localhost' or an IP address
-    'port': POSTGRES_PORT       # Default PostgreSQL port
-}
+    # Parameters for the query
+    # tags = [(1, 'PIC11151A'), (2, 'FIC11121'), (3, 'FIC11120'), (4, 'TIC12102'), (5, 'PIC05101'), (6, 'PIC07814')] 
 
-# Parameters for the query
-# tags = [(1, 'PIC11151A'), (2, 'FIC11121'), (3, 'FIC11120'), (4, 'TIC12102'), (5, 'PIC05101'), (6, 'PIC07814')] 
+    # Creating postgres connection
+    conn = None
+    cursor = None
+    try:
+        print("Connecting to the PostgreSQL database...")
+        conn = pg.connect(**db_config)
 
-# Creating postgres connection
-conn = None
-cursor = None
-try:
-    print("Connecting to the PostgreSQL database...")
-    conn = pg.connect(**db_config)
+        # Create a cursor
+        cursor = conn.cursor()
+        tags = get_anomaly_tags(cursor)
+        if conn and cursor:
+            for tag_anomaly_id, tag_name in tags:
+                tag_name = tag_name.split("\\")[0] #remove the \AS from the tag name
+                dataset= get_data_with_in_clause(conn, cursor, tag_name)
+                current_path = os.path.dirname(os.path.abspath(__file__))
+                model_path = os.path.join(current_path, tag_name)
+                # dataset = pd.read_csv(os.path.join(current_path,'csv', 'Malha_11151A.csv'))
+                dataset = prep.treat_data(dataset, tag_name)
+                dataset_filtered = prep.filter_columns(dataset)
 
-    # Create a cursor
-    cursor = conn.cursor()
-    tags = get_anomaly_tags(cursor)
-    if conn and cursor:
-        for tag_anomaly_id, tag_name in tags:
-            tag_name = tag_name.split("\\")[0] #remove the \AS from the tag name
-            dataset= get_data_with_in_clause(conn, cursor, tag_name)
-            current_path = os.path.dirname(os.path.abspath(__file__))
-            model_path = os.path.join(current_path, tag_name)
-            # dataset = pd.read_csv(os.path.join(current_path,'csv', 'Malha_11151A.csv'))
-            dataset = prep.treat_data(dataset, tag_name)
-            dataset_filtered = prep.filter_columns(dataset)
+                m = load_model(f'./models/{tag_name}')
+                predictions = predict_model(m, data=dataset_filtered.drop(columns=['Timestamp']))
 
-            m = load_model(f'./models/{tag_name}')
-            predictions = predict_model(m, data=dataset_filtered.drop(columns=['Timestamp']))
+                window = 15 #The script will run every 15 minutes
 
-            window = 15 #The script will run every 15 minutes
+                predictions = pd.concat([predictions, dataset['Timestamp']], axis=1).tail(window)
+                for index, row in predictions.iterrows():
+                    # Create the INSERT query
 
-            predictions = pd.concat([predictions, dataset['Timestamp']], axis=1).tail(window)
-            for index, row in predictions.iterrows():
-                # Create the INSERT query
+                    query = f"""INSERT INTO {VARIABLES_SCHEMA}.inspections_calc (id_param_fk, value, dt) 
+                            select * from
+                            (
+                            select %s as id_param_fk,
+                                %s as value,
+                                %s as dt
+                                ) as sub
+                            where sub.dt > (select case when max(dt) is null then '2025-01-01'::timestamptz else max(dt) end 
+                                            from {VARIABLES_SCHEMA}.inspections_calc where id_param_fk = %s); """
 
-                query = f"""INSERT INTO {VARIABLES_SCHEMA}.inspections_calc (id_param_fk, value, dt) 
-                        select * from
-                        (
-                        select %s as id_param_fk,
-                            %s as value,
-                            %s as dt
-                            ) as sub
-                        where sub.dt > (select case when max(dt) is null then '2025-01-01'::timestamptz else max(dt) end 
-                                        from {VARIABLES_SCHEMA}.inspections_calc where id_param_fk = %s); """
-
-                values = (tag_anomaly_id, row['Anomaly_Score'], row['Timestamp'], tag_anomaly_id)
-                # Execute the query
-                cursor.execute(query, values)
-            print("Success")
-            conn.commit()
-    else:
-        print('No connection or cursor was found')
-except Exception as e:
-    if conn:
-        conn.rollback()
-        print("Error while conecting to database!")
-    print(e)
-finally:
-    if conn and cursor:
-        cursor.close()
-        conn.close()
-        print("PostgreSQL connection closed.")
+                    values = (tag_anomaly_id, row['Anomaly_Score'], row['Timestamp'], tag_anomaly_id)
+                    # Execute the query
+                    cursor.execute(query, values)
+                print("Success")
+                conn.commit()
+        else:
+            print('No connection or cursor was found')
+    except Exception as e:
+        if conn:
+            conn.rollback()
+            print("Error while conecting to database!")
+        print(e)
+    finally:
+        if conn and cursor:
+            cursor.close()
+            conn.close()
+            print("PostgreSQL connection closed.")
 
 

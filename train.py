@@ -117,6 +117,28 @@ def set_negative_II113RC001_U_mean_to_zero(df):
 
   return df
 
+def add_anomaly_score_tag(cursor, tag_name):
+    query = f"""
+      SELECT id FROM {VARIABLES_SCHEMA}.params_calc WHERE description = '{tag_name}\\AS';
+    """
+    cursor.execute(query)
+    result = cursor.fetchall()
+    if result == []:
+        print(f"Tag {tag_name}\\AS not found in the database, creating one...")
+        query = f""" SELECT max(id) from {VARIABLES_SCHEMA}.params_calc"""
+        cursor.execute(query)
+        result = cursor.fetchall()
+        new_id = result[0] + 1
+        anomaly_tag = f'{tag_name}\\AS'
+        tag_type = 'anomaly'
+        query = f"""
+            INSERT INTO {VARIABLES_SCHEMA}.params_calc (id, description, type) VALUES ({new_id}, {anomaly_tag}, {tag_type}) 
+            """
+        cursor.execute(query)
+    return
+
+
+
 
 
 if __name__ == "__main__":
@@ -152,6 +174,7 @@ if __name__ == "__main__":
             m = create_model('svm')
             model_path = os.path.join(current_path,'models', tag_name)
             save_model(m, model_path)
+            add_anomaly_score_tag(cursor, tag_name)
         conn.commit()
     except Exception as e:
         print("failed to get training data, error: ")
