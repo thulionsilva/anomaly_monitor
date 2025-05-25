@@ -137,6 +137,22 @@ def add_anomaly_score_tag(cursor, tag_name):
         cursor.execute(query)
     return
 
+def train():
+    # Load the data
+    # df = pd.read_csv('training_data.csv')
+    # df = prep.treat_data(df, tag_name)
+    # dftrain = df
+
+    # Filter columns
+    # dftrain_filtered = filter_columns(dftrain)
+
+    # Set up the PyCaret environment
+    setup(data=dftrain_filtered, session_id=123, normalize=False, ignore_features=['Timestamp'], remove_outliers=True)
+
+    # Create and save the model
+    m = create_model('svm')
+
+    return m
 
 
 
